@@ -30,9 +30,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken', # Used to enable token authentication
     'core',  # New app
     'ecommerce',  # Another new app
+    'corsheaders',  # CORS
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -140,3 +142,7 @@ REST_FRAMEWORK = {
     ),
     'TEST_REQUEST_DEFAULT_FORMAT': 'vnd.api+json'
 }
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:4200',  # Frontend Angular url
+]
